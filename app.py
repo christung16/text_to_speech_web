@@ -3,7 +3,7 @@ import uuid
 import requests
 from flask import Flask, render_template, request, url_for
 from bs4 import BeautifulSoup
-from gtts import gTTS
+# add gtts library
 import shutil
 
 app = Flask(__name__)
