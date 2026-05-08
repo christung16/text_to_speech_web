@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h1>Natural Web Reader</h1>
+  <form method="post">
+    <label>Article URL:</label>
+    <input type="url" name="url" placeholder="https://example.com/article" required value="{{ url }}">
+    
+    <label>Select Dialect:</label>
+    <select name="lang">
+      <option value="en" {% if lang == 'en' %}selected{% endif %}>English</option>
+      <option value="zh" {% if lang == 'zh' %}selected{% endif %}>Mandarin (Simplified)</option>
+      <option value="zh-TW" {% if lang == 'zh-TW' %}selected{% endif %}>Mandarin (Traditional)</option>
+      <option value="yue" {% if lang == 'yue' %}selected{% endif %}>Cantonese (Hong Kong)</option>
+    </select>
+
+    <input type="submit" value="Listen Now">
+  </form>
+
+  {% if message %}<p style="color:red;">{{ message }}</p>{% endif %}
+
+  {% if audio_url %}
+  <div class="audio-player">
+    <h3>Audio Ready:</h3>
+    <audio controls autoplay>
+      <source src="{{ audio_url }}" type="audio/mpeg">
+    </audio>
+  </div>
+  {% endif %}
+{% endblock %}
