@@ -4,6 +4,8 @@ import requests
 from flask import Flask, render_template, request, url_for
 from bs4 import BeautifulSoup
 # add gtts library
+from gtts import gTTS
+
 import shutil
 
 app = Flask(__name__)
